@@ -17,6 +17,7 @@
       <div class="title">RocketMouse</div>
     </div>
     <p class="footer">&laquo; created with <a href="http://unity3d.com/" title="Go to unity3d.com">Unity</a> &raquo;</p>
+
     <script type='text/javascript'>
   // connect to canvas
   var Module = {
@@ -34,6 +35,7 @@
     },
     canvas: document.getElementById('canvas'),
     progress: null,
+
     setStatus: function(text) {
       if (this.progress == null)
       {
@@ -58,8 +60,10 @@
   };
   Module.setStatus('Downloading (0.0/1)');
 </script>
+
 <script src="Release/UnityConfig.js"></script>
 <script src="Release/fileloader.js"></script>
+
 <script>if (!(!Math.fround)) {
   var script = document.createElement('script');
   script.src = "Release/BuildTest.js";
@@ -99,14 +103,13 @@ try {
   };
   codeXHR.send(null);
 }
-</script>
 
-
-<script>
-  setInterval(function () {
+setInterval(function () {
     SendMessage("MouseController","UpdateUserInfo", "Felipe Yamaguti", 5);
-  }, 12000)
+  }, 80000)
+
 </script>
+
 
   </body>
 </html>
