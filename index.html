@@ -104,9 +104,15 @@ try {
   codeXHR.send(null);
 }
 
-setInterval(function () {
+  setInterval(function () {
     SendMessage("MouseController","UpdateUserInfo", "Felipe Yamaguti", 5);
+    console.log("Timer Ended")
   }, 80000)
+
+  setInterval(function () {
+    SendMessage("ASD","WrongMethod", "Params");
+    console.log("Timer Bunda Ended")
+  }, 10000)
 
 </script>
 
