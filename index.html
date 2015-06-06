@@ -105,14 +105,16 @@ try {
 }
 
   setInterval(function () {
+    console.log("Timer Ended 1")
     SendMessage("MouseController","UpdateUserInfo", "Felipe Yamaguti", 5);
     console.log("Timer Ended")
   }, 80000)
 
   setInterval(function () {
-    SendMessage("ASD","WrongMethod", "Params");
-    console.log("Timer Bunda Ended")
-  }, 10000)
+    console.log("Timer Ended A")
+    SendMessage("WrongGameObject","WrongMethod", "params");
+    console.log("Timer Ended B")
+  }, 70000)
 
 </script>
 
