@@ -3,21 +3,20 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | RocketMouse</title>
+    <title>Unity WebGL Player | Nave2d</title>
     <link rel="stylesheet" href="TemplateData/style.css">
     <link rel="shortcut icon" href="TemplateData/favicon.ico" />
     <script src="TemplateData/UnityProgress.js"></script>
   </head>
   <body class="template">
-    <p class="header"><span>Unity WebGL Player | </span>RocketMouse</p>
+    <p class="header"><span>Unity WebGL Player | </span>Nave2d</p>
     <div class="template-wrap clear">
-    <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="600px" width="960px"></canvas>
+    <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="900px" width="600px"></canvas>
       <div class="logo"></div>
       <div class="fullscreen"><img src="TemplateData/fullscreen.png" width="38" height="38" alt="Fullscreen" title="Fullscreen" onclick="SetFullscreen(1);" /></div>
-      <div class="title">RocketMouse</div>
+      <div class="title">Nave2d</div>
     </div>
     <p class="footer">&laquo; created with <a href="http://unity3d.com/" title="Go to unity3d.com">Unity</a> &raquo;</p>
-
     <script type='text/javascript'>
   // connect to canvas
   var Module = {
@@ -35,9 +34,8 @@
     },
     canvas: document.getElementById('canvas'),
     progress: null,
-
     setStatus: function(text) {
-      if (this.progress == null)
+      if (this.progress == null) 
       {
         if (typeof UnityProgress != 'function')
           return;
@@ -49,7 +47,7 @@
       var m = text.match(/([^(]+)\((\d+(\.\d+)?)\/(\d+)\)/);
       if (m)
         this.progress.SetProgress (parseInt(m[2])/parseInt(m[4]));
-      if (text === "")
+      if (text === "") 
         this.progress.Clear()
     },
     totalDependencies: 0,
@@ -60,20 +58,18 @@
   };
   Module.setStatus('Downloading (0.0/1)');
 </script>
-
 <script src="Release/UnityConfig.js"></script>
 <script src="Release/fileloader.js"></script>
-
 <script>if (!(!Math.fround)) {
   var script = document.createElement('script');
-  script.src = "Release/BuildTest.js";
+  script.src = "Release/Builds.js";
   document.body.appendChild(script);
 } else {
   var codeXHR = new XMLHttpRequest();
-  codeXHR.open('GET', 'Release/BuildTest.js', true);
+  codeXHR.open('GET', 'Release/Builds.js', true);
   codeXHR.onload = function() {
     var code = codeXHR.responseText;
-    if (!Math.fround) {
+    if (!Math.fround) { 
 try {
   console.log('optimizing out Math.fround calls');
   var m = /var ([^=]+)=global\.Math\.fround;/.exec(code);
@@ -103,21 +99,6 @@ try {
   };
   codeXHR.send(null);
 }
-
-  setInterval(function () {
-    console.log("Timer Ended 1")
-    SendMessage("mouse","UpdateUserInfo", "Felipe Yamaguti", 5);
-    console.log("Timer Ended")
-  }, 80000)
-
-  setInterval(function () {
-    console.log("Timer Ended A")
-    SendMessage("WrongGameObject","WrongMethod", "params");
-    console.log("Timer Ended B")
-  }, 70000)
-
 </script>
-
-
   </body>
 </html>
