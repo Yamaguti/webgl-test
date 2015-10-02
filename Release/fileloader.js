@@ -15,8 +15,8 @@ Module.expectedDataFileDownloads++;
       // worker
       PACKAGE_PATH = encodeURIComponent(location.pathname.toString().substring(0, location.pathname.toString().lastIndexOf('/')) + '/');
     }
-    var PACKAGE_NAME = 'Builds.data';
-    var REMOTE_PACKAGE_BASE = 'Builds.data';
+    var PACKAGE_NAME = 'Build-Set-2015.data';
+    var REMOTE_PACKAGE_BASE = 'Build-Set-2015.data';
     if (typeof Module['locateFilePackage'] === 'function' && !Module['locateFile']) {
       Module['locateFile'] = Module['locateFilePackage'];
       Module.printErr('warning: you defined Module.locateFilePackage, that has been renamed to Module.locateFile (using your locateFilePackage for now)');
@@ -24,8 +24,8 @@ Module.expectedDataFileDownloads++;
     var REMOTE_PACKAGE_NAME = typeof Module['locateFile'] === 'function' ?
                               Module['locateFile'](REMOTE_PACKAGE_BASE) :
                               ((Module['filePackagePrefixURL'] || '') + REMOTE_PACKAGE_BASE);
-    var REMOTE_PACKAGE_SIZE = 15235574;
-    var PACKAGE_UUID = '6ba2d553-666f-497f-a127-5e4ced6e9be3';
+    var REMOTE_PACKAGE_SIZE = 48959871;
+    var PACKAGE_UUID = '8ac84d37-ef0c-41f3-8f0d-f3a9353a763b';
   
     function fetchRemotePackage(packageName, packageSize, callback, errback) {
       var xhr = new XMLHttpRequest();
@@ -123,12 +123,15 @@ Module['FS_createPath']('/', 'Resources', true, true);
         this.requests[this.name] = null;
       },
     };
-      new DataRequest(0, 27840, 0, 0).open('GET', '/mainData');
-    new DataRequest(27840, 27861, 0, 0).open('GET', '/methods_pointedto_by_uievents.xml');
-    new DataRequest(27861, 10206129, 0, 0).open('GET', '/sharedassets0.assets');
-    new DataRequest(10206129, 13161094, 0, 0).open('GET', '/sharedassets0.resource');
-    new DataRequest(13161094, 14721466, 0, 0).open('GET', '/Resources/unity_default_resources');
-    new DataRequest(14721466, 15235574, 0, 0).open('GET', '/Resources/unity_builtin_extra');
+      new DataRequest(0, 202788, 0, 0).open('GET', '/level0');
+    new DataRequest(202788, 414308, 0, 0).open('GET', '/mainData');
+    new DataRequest(414308, 419215, 0, 0).open('GET', '/methods_pointedto_by_uievents.xml');
+    new DataRequest(419215, 12140583, 0, 0).open('GET', '/sharedassets0.assets');
+    new DataRequest(12140583, 18447584, 0, 0).open('GET', '/sharedassets0.resource');
+    new DataRequest(18447584, 40330232, 0, 0).open('GET', '/sharedassets1.assets');
+    new DataRequest(40330232, 46885391, 0, 0).open('GET', '/sharedassets1.resource');
+    new DataRequest(46885391, 48445763, 0, 0).open('GET', '/Resources/unity_default_resources');
+    new DataRequest(48445763, 48959871, 0, 0).open('GET', '/Resources/unity_builtin_extra');
 
     function processPackageData(arrayBuffer) {
       Module.finishedDataFileDownloads++;
@@ -138,16 +141,19 @@ Module['FS_createPath']('/', 'Resources', true, true);
       
       // Reuse the bytearray from the XHR as the source for file reads.
       DataRequest.prototype.byteArray = byteArray;
+          DataRequest.prototype.requests["/level0"].onload();
           DataRequest.prototype.requests["/mainData"].onload();
           DataRequest.prototype.requests["/methods_pointedto_by_uievents.xml"].onload();
           DataRequest.prototype.requests["/sharedassets0.assets"].onload();
           DataRequest.prototype.requests["/sharedassets0.resource"].onload();
+          DataRequest.prototype.requests["/sharedassets1.assets"].onload();
+          DataRequest.prototype.requests["/sharedassets1.resource"].onload();
           DataRequest.prototype.requests["/Resources/unity_default_resources"].onload();
           DataRequest.prototype.requests["/Resources/unity_builtin_extra"].onload();
-          Module['removeRunDependency']('datafile_Builds.data');
+          Module['removeRunDependency']('datafile_Build-Set-2015.data');
 
     };
-    Module['addRunDependency']('datafile_Builds.data');
+    Module['addRunDependency']('datafile_Build-Set-2015.data');
   
     if (!Module.preloadResults) Module.preloadResults = {};
   
